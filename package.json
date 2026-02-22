@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "version:patch": "npm version patch && git push origin master --tags",
     "version:minor": "npm version minor && git push origin master --tags",
-    "version:major": "npm version major && git push origin master --tags"
+    "version:major": "npm version major && git push origin master --tags",
+    "version": "node scripts/update-changelog.js && git add CHANGELOG.md"
   },
   "devDependencies": {
     "typescript": "^5.9.2",
