@@ -1,13 +1,6 @@
 # Gemini 对话导航 (Gemini Navigation)
 
-一个为 [Gemini](https://gemini.google.com/) 深度定制的对话导航增强脚本。提供平滑、直观的高级导航体验。
-
-## 核心特性
-
-- **🚀 章节级跳转**：以用户的“提问”作为章节锚点，实现精准的一键溯源，拒绝无意义的细碎跳转。
-- **✨ MD3 美学**：采用 Material Design 3 设计语言，支持**玻璃拟态 (Glassmorphism)** 和动态阴影，优雅融入 Gemini 原生界面。
-- **🧩 智能感知**：基于 `IntersectionObserver` 实时追踪阅读位置，导航面板随对话状态自动显隐。
-- **🛡️ 极致稳定**：通过变量局部隔离与语义化标签锚定，彻底解决虚拟滚动导致的 ID 丢失和 UI 冲突问题。
+一个为 [Gemini](https://gemini.google.com/) 提供对话导航增强脚本。提供平滑、直观的高级导航体验。
 
 ## 功能说明
 
