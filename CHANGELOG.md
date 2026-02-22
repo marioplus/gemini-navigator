@@ -8,8 +8,7 @@ All notable changes to this project will be documented in this file.
 - 
 
 ### Changed
-- 添加协议、图标
-- 补全 homepageURL
+- 
 
 ### Deprecated
 - 
@@ -22,6 +21,12 @@ All notable changes to this project will be documented in this file.
 
 ### Security
 - 
+
+## [0.1.3] - 2026-02-22
+
+### Changed
+- 添加协议、图标
+- 补全 homepageURL
 
 ## [0.1.2] - 2026-02-22
 

@@ -1,7 +1,7 @@
 {
   "name": "gemini-navigator",
   "private": true,
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Gemini 对话导航",
   "type": "module",
   "scripts": {
