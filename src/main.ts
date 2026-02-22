@@ -39,15 +39,19 @@ function updateBtnStatus() {
   if (!scroller) return;
 
   const isAtBottom = scroller.scrollTop + scroller.clientHeight >= scroller.scrollHeight - 50;
+  const canUp = NavState.activeIdx > 0;
+  const canDown = NavState.activeIdx !== -1 && NavState.activeIdx < NavState.elements.length - 1 && !isAtBottom;
+  const canBottom = !isAtBottom; // 只要没在底部，就允许显示“到底部”按钮
 
-  // 显隐逻辑
-  btnUp.classList.toggle('hidden', NavState.activeIdx <= 0);
-  btnDown.classList.toggle('hidden', (NavState.activeIdx === -1 || NavState.activeIdx >= NavState.elements.length - 1) || isAtBottom);
-  btnBottom.classList.toggle('hidden', isAtBottom);
-  divider.classList.toggle('hidden', isAtBottom);
+  // 更新各组件显隐
+  btnUp.classList.toggle('hidden', !canUp);
+  btnDown.classList.toggle('hidden', !canDown);
+  btnBottom.classList.toggle('hidden', !canBottom);
+  divider.classList.toggle('hidden', !canBottom);
 
-  // 面板激活逻辑
-  container.classList.toggle('active', NavState.elements.length > 0);
+  // 面板激活逻辑：必须有消息，且至少有一个按钮可见
+  const hasVisibleAction = canUp || canDown || canBottom;
+  container.classList.toggle('active', NavState.elements.length > 0 && hasVisibleAction);
 }
 
 // --- 核心追踪逻辑 ---

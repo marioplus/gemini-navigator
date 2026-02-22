@@ -10,7 +10,7 @@ export default defineConfig({
       userscript: {
         name: 'Gemini 对话导航',
         version: version,
-        description: 'Gemini 对话导航，增加上一条、下一条、到底部导航按钮，支持 MD3 动效，自动消除隐藏按钮间的残留间距',
+        description: 'Gemini 对话导航，增加上一条、下一条、到底部导航按钮',
         author: 'marioplus',
         match: ['https://gemini.google.com/*'],
         namespace: 'https://github.com/marioplus/gemini-navigator',
