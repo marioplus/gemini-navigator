@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import monkey from 'vite-plugin-monkey';
+import { version } from './package.json';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -8,7 +9,7 @@ export default defineConfig({
       entry: 'src/main.ts',
       userscript: {
         name: 'Gemini 对话导航',
-        version: '1.0.0',
+        version: version,
         description: 'Gemini 对话导航，增加上一条、下一条、到底部导航按钮，支持 MD3 动效，自动消除隐藏按钮间的残留间距',
         author: 'marioplus',
         match: ['https://gemini.google.com/*'],
