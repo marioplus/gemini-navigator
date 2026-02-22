@@ -8,7 +8,8 @@ All notable changes to this project will be documented in this file.
 - 
 
 ### Changed
-- 
+- 添加协议、图标
+- 补全 homepageURL
 
 ### Deprecated
 - 
