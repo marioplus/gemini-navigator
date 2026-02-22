@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ### Added
-- 
+- ci自动提取changelog中的内容
 
 ### Changed
 - 

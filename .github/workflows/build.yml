@@ -44,12 +44,26 @@ jobs:
           name: gemini-navigator-v${{ steps.package_version.outputs.VERSION }}
           path: dist/*.user.js
 
+      - name: Extract Release Notes
+        id: release_notes
+        run: |
+          VERSION="${{ steps.package_version.outputs.VERSION }}"
+          # 找到包含当前版本号的行
+          START_LINE=$(grep -n "## \[$VERSION\]" CHANGELOG.md | cut -d: -f1)
+          if [ -z "$START_LINE" ]; then
+            echo "No notes found for version $VERSION" > release_notes.md
+          else
+            # 从版本行之后开始截取，直到下一个版本标题 (## [x.x.x]) 或文件末尾
+            tail -n +$((START_LINE + 1)) CHANGELOG.md | sed -e '/## \[/,$d' > release_notes.md
+          fi
+
       - name: Create Draft Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ steps.package_version.outputs.VERSION }}
           name: Gemini Navigator v${{ steps.package_version.outputs.VERSION }}
           draft: true
+          body_path: release_notes.md
           files: dist/*.user.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
