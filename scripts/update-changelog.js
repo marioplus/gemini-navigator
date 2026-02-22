@@ -55,8 +55,25 @@ if (changelog.includes(unreleasedHeader)) {
             unreleasedContent = contentAfter.trim();
         }
 
+        // --- 核心逻辑：过滤空标签 ---
+        const sections = unreleasedContent.split(/^### /m);
+        const filteredSections = sections.map(section => {
+            if (!section.trim()) return '';
+
+            // 提取内容（去除标题行）
+            const lines = section.split('\n');
+            const content = lines.slice(1).join('\n');
+
+            // 检查内容是否包含除横杠、空格、换行符、回车符以外的字符
+            const hasRealContent = content.replace(/[\-\s\r\n]/g, '').length > 0;
+
+            return hasRealContent ? `### ${section.trim()}\n\n` : '';
+        }).filter(s => s !== '');
+
+        const finalUnreleasedContent = filteredSections.join('').trim();
+
         // 拼接新的内容
-        const updatedChangelog = parts[0] + template + '\n' + newVersionHeader + '\n\n' + unreleasedContent + '\n' + restOfFile;
+        const updatedChangelog = parts[0] + template + '\n' + newVersionHeader + '\n\n' + finalUnreleasedContent + '\n' + restOfFile;
 
         writeFileSync(changelogPath, updatedChangelog, 'utf8');
         console.log(`✅ CHANGELOG.md 已自动归档至版本 [${version}]`);
