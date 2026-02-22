@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ### Added
-- 完成基础功能
+- 
 
 ### Changed
 - 
@@ -21,3 +21,8 @@ All notable changes to this project will be documented in this file.
 
 ### Security
 - 
+
+## [0.1.1] - 2026-02-22
+
+### Added
+- 完成基础功能
