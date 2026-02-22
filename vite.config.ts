@@ -7,9 +7,13 @@ export default defineConfig({
     monkey({
       entry: 'src/main.ts',
       userscript: {
-        icon: 'https://vitejs.dev/logo.svg',
-        namespace: 'npm/vite-plugin-monkey',
-        match: ['https://www.google.com/'],
+        name: 'Gemini 对话导航',
+        version: '1.0.0',
+        description: 'Gemini 对话导航，增加上一条、下一条、到底部导航按钮，支持 MD3 动效，自动消除隐藏按钮间的残留间距',
+        author: 'Gemini',
+        match: ['https://gemini.google.com/*'],
+        namespace: 'npm/gemini-navigator',
+        'run-at': 'document-end',
       },
     }),
   ],
